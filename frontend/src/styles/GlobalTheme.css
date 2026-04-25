@@ -1,0 +1,860 @@
+/* Layout Structure */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar-fixed {
+  width: 250px;
+  background: linear-gradient(180deg, #000000 0%, #001a33 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-right: 2px solid #004080;
+}
+
+.brand-area h3 {
+  color: #3399ff;
+  margin-bottom: 40px;
+  font-size: 24px;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  color: #bbbbbb;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.menu-item:hover, .menu-item.active {
+  background-color: #004080;
+  color: white;
+}
+
+/* Logout Button (Blue style, no red) */
+.logout-button-blue {
+  margin-top: auto;
+  background-color: transparent;
+  border: 1px solid #3399ff;
+  color: #3399ff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-button-blue:hover {
+  background-color: #3399ff;
+  color: white;
+}
+
+/* Top Nav Styling - FIXED ALIGNMENT */
+.top-nav-fixed {
+  height: 70px;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  /* 🔥 This pushes the name to the right corner */
+  justify-content: flex-end; 
+  align-items: center; 
+  padding: 0 40px;
+  border-bottom: 2px solid #004080;
+}
+
+.user-box {
+  display: flex;
+  align-items: center;
+}
+
+.user-box span {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.user-box strong {
+  color: #3399ff;
+  margin-left: 8px;
+  text-transform: uppercase;
+}
+
+/* White Content Area */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5; 
+}
+
+.content-scroller {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.white-page-content {
+  background-color: #ffffff;
+  min-height: 100%;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  color: #333;
+}
+.ai-floating-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
+
+.ai-floating-button:hover {
+  transform: scale(1.1);
+  background-color: #0056b3;
+  color: white;
+}.selection-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.selection-card:hover {
+  background: #004080;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 64, 128, 0.2) !important;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #555;
+}
+
+.form-control:focus {
+  border-color: #3399ff;
+  box-shadow: 0 0 0 0.2rem rgba(51, 153, 255, 0.25);
+}
+/* Management Label for Officer Sidebar */
+.sidebar-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #557ba3;
+  margin-top: 20px;
+}
+
+/* Ensure the layout wraps correctly on small screens */
+@media (max-width: 768px) {
+  .sidebar-fixed {
+    width: 80px;
+  }
+  .sidebar-fixed .brand-area h3, 
+  .sidebar-fixed .menu-item,
+  .sidebar-fixed .sidebar-label {
+    font-size: 10px;
+    text-align: center;
+  }
+}
+/* THEME VARIABLES */
+[data-theme='black'] {
+  --bg-main: #000000;
+  --bg-sidebar: linear-gradient(180deg, #000000 0%, #001a33 100%);
+  --bg-content: #0b0e14;
+  --text-main: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --border-color: #004080;
+  --card-bg: #151921;
+}
+
+[data-theme='white'] {
+  --bg-main: #f0f2f5;
+  --bg-sidebar: #ffffff;
+  --bg-content: #ffffff;
+  --text-main: #333333;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --border-color: #dee2e6;
+  --card-bg: #f8f9fa;
+}
+
+/* Updated Structural CSS */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--bg-main);
+  transition: all 0.3s ease;
+}
+
+.sidebar-fixed {
+  width: 250px;
+  background: var(--bg-sidebar);
+  border-right: 2px solid var(--border-color);
+  color: var(--text-main);
+  /* Use fixed positioning logic from your design */
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main);
+}
+
+.themed-page-content {
+  background-color: var(--bg-content);
+  color: var(--text-main);
+  min-height: 100%;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px var(--card-shadow);
+  transition: background 0.3s ease;
+}
+
+.theme-toggle-btn {
+  background: var(--border-color);
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.user-highlight {
+    color: #3399ff;
+}
+/* 1. Prevent the whole body from scrolling */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* This kills the outer scrollbar */
+  background-color: var(--bg-main);
+}
+
+/* 2. Fix the Sidebar so it doesn't move */
+.sidebar-fixed {
+  width: 250px;
+  height: 100vh;
+  flex-shrink: 0; /* Prevents sidebar from squishing */
+  background: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-right: 2px solid var(--border-color);
+}
+
+/* 3. Main area handles the vertical scroll */
+.main-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; 
+}
+
+/* 4. This is where your dashboard content lives */
+.content-scroller {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* Only this area scrolls */
+  background-color: var(--bg-main);
+}
+
+/* 5. Hide Scrollbar for Chrome/Safari/Edge but keep scrolling functional */
+.content-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* 6. Hide Scrollbar for Firefox */
+.content-scroller {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Custom Input Styling for the Themed Pages */
+.form-control, .form-select {
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.form-control::placeholder {
+  color: #6c757d;
+  opacity: 0.6;
+}
+
+.form-control:focus {
+  background-color: transparent;
+  box-shadow: 0 0 0 0.25rem rgba(51, 153, 255, 0.25);
+  border-color: #3399ff !important;
+}
+
+/* Specific adjustment for dark mode dropdown options */
+[data-theme='black'] option {
+  background-color: #0b0e14;
+  color: white;
+}
+/* Card hover effect specifically for management cards */
+.selection-card {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.selection-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-color);
+  box-shadow: 0 10px 30px var(--card-shadow) !important;
+}
+
+/* Red button glow for Suspend actions */
+.btn-outline-danger:hover {
+  box-shadow: 0 0 15px rgba(220, 53, 69, 0.4);
+}
+
+/* Badge styling */
+.badge {
+  font-size: 10px;
+  padding: 5px 10px;
+  letter-spacing: 0.5px;
+}
+/* Layout Structure */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar-fixed {
+  width: 250px;
+  background: linear-gradient(180deg, #000000 0%, #001a33 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-right: 2px solid #004080;
+}
+
+.brand-area h3 {
+  color: #3399ff;
+  margin-bottom: 40px;
+  font-size: 24px;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  color: #bbbbbb;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.menu-item:hover, .menu-item.active {
+  background-color: #004080;
+  color: white;
+}
+
+/* Logout Button (Blue style, no red) */
+.logout-button-blue {
+  margin-top: auto;
+  background-color: transparent;
+  border: 1px solid #3399ff;
+  color: #3399ff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-button-blue:hover {
+  background-color: #3399ff;
+  color: white;
+}
+
+/* Top Nav Styling - FIXED ALIGNMENT */
+.top-nav-fixed {
+  height: 70px;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  /* 🔥 This pushes the name to the right corner */
+  justify-content: flex-end; 
+  align-items: center; 
+  padding: 0 40px;
+  border-bottom: 2px solid #004080;
+}
+
+.user-box {
+  display: flex;
+  align-items: center;
+}
+
+.user-box span {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.user-box strong {
+  color: #3399ff;
+  margin-left: 8px;
+  text-transform: uppercase;
+}
+
+/* White Content Area */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5; 
+}
+
+.content-scroller {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.white-page-content {
+  background-color: #ffffff;
+  min-height: 100%;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  color: #333;
+}
+.ai-floating-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
+
+.ai-floating-button:hover {
+  transform: scale(1.1);
+  background-color: #0056b3;
+  color: white;
+}.selection-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.selection-card:hover {
+  background: #004080;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 64, 128, 0.2) !important;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #555;
+}
+
+.form-control:focus {
+  border-color: #3399ff;
+  box-shadow: 0 0 0 0.2rem rgba(51, 153, 255, 0.25);
+}
+/* Management Label for Officer Sidebar */
+.sidebar-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #557ba3;
+  margin-top: 20px;
+}
+
+/* Ensure the layout wraps correctly on small screens */
+@media (max-width: 768px) {
+  .sidebar-fixed {
+    width: 80px;
+  }
+  .sidebar-fixed .brand-area h3, 
+  .sidebar-fixed .menu-item,
+  .sidebar-fixed .sidebar-label {
+    font-size: 10px;
+    text-align: center;
+  }
+}
+/* THEME VARIABLES */
+
+/* Updated Structural CSS */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--bg-main);
+  transition: all 0.3s ease;
+}
+
+.sidebar-fixed {
+  width: 250px;
+  background: var(--bg-sidebar);
+  border-right: 2px solid var(--border-color);
+  color: var(--text-main);
+  /* Use fixed positioning logic from your design */
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main);
+}
+
+.themed-page-content {
+  background-color: var(--bg-content);
+  color: var(--text-main);
+  min-height: 100%;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px var(--card-shadow);
+  transition: background 0.3s ease;
+}
+
+/* Update the Theme Toggle Button */
+.theme-toggle-btn {
+  background: var(--border-color);
+  color: rgb(20, 18, 18);
+  border: none;
+  padding: 10px 15px; /* Increased vertical padding for better tap target */
+  border-radius: 8px;   /* Changed to match your menu-item radius */
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;        /* Make it full width like other sidebar items */
+  margin-top: auto;   /* Push this and everything below it to the bottom */
+  margin-bottom: 12px; /* This creates the spacing between the two buttons */
+  transition: 0.3s;
+}
+
+.theme-toggle-btn:hover {
+  filter: brightness(1.2);
+}
+
+/* Update Logout Button */
+.logout-button-blue {
+  /* margin-top: auto; <- REMOVE THIS (it's now on the theme button) */
+  background-color: transparent;
+  border: 1px solid #3399ff;
+  color: #3399ff;
+  padding: 10px;
+  border-radius: 8px; /* Matched radius for consistency */
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;        /* Ensure it matches the theme button width */
+}
+.user-highlight {
+    color: #3399ff;
+}
+/* 1. Prevent the whole body from scrolling */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* This kills the outer scrollbar */
+  background-color: var(--bg-main);
+}
+
+/* 2. Fix the Sidebar so it doesn't move */
+.sidebar-fixed {
+  width: 250px;
+  height: 100vh;
+  flex-shrink: 0; /* Prevents sidebar from squishing */
+  background: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-right: 2px solid var(--border-color);
+}
+
+/* 3. Main area handles the vertical scroll */
+.main-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; 
+}
+
+/* 4. This is where your dashboard content lives */
+.content-scroller {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* Only this area scrolls */
+  background-color: var(--bg-main);
+}
+
+/* 5. Hide Scrollbar for Chrome/Safari/Edge but keep scrolling functional */
+.content-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* 6. Hide Scrollbar for Firefox */
+.content-scroller {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Custom Input Styling for the Themed Pages */
+.form-control, .form-select {
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.form-control::placeholder {
+  color: #6c757d;
+  opacity: 0.6;
+}
+
+.form-control:focus {
+  background-color: transparent;
+  box-shadow: 0 0 0 0.25rem rgba(51, 153, 255, 0.25);
+  border-color: #3399ff !important;
+}
+
+/* Specific adjustment for dark mode dropdown options */
+[data-theme='black'] option {
+  background-color: #0b0e14;
+  color: white;
+}
+/* Card hover effect specifically for management cards */
+.selection-card {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.selection-card:hover {
+  background-color: #ffffff; /* added */
+  color: #000000; /* optional: ensures text is visible on white */
+  transform: translateY(-5px);
+  border-color: var(--border-color);
+  box-shadow: 0 10px 30px var(--card-shadow) !important;
+}
+/* Red button glow for Suspend actions */
+.btn-outline-danger:hover {
+  box-shadow: 0 0 15px rgba(220, 53, 69, 0.4);
+}
+
+/* Badge styling */
+.badge {
+  font-size: 10px;
+  padding: 5px 10px;
+  letter-spacing: 0.5px;
+}
+
+/* --- FIXED MODAL CSS --- */
+
+/* 1. The Overlay: This creates the dark background and centers the modal */
+.custom-modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.85) !important; /* Dark dim effect */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 9999 !important; /* Ensures it is on top of sidebar and topnav */
+  backdrop-filter: blur(4px); /* Modern blurred background effect */
+}
+
+/* 2. The Container: The actual box with your content */
+.custom-modal-container {
+  background-color: var(--card-bg) !important;
+  color: var(--text-main) !important;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 650px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  max-height: 90vh; /* Prevents modal from being taller than screen */
+  overflow-y: auto; /* Adds scroll inside modal if content is long */
+}
+
+/* 3. Textarea: Styled to match your Dark/White theme */
+.remarks-textarea {
+  width: 100%;
+  min-height: 120px;
+  background-color: rgba(128, 128, 128, 0.1) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.remarks-textarea:focus {
+  border-color: #3399ff !important;
+}
+
+/* 4. Labels inside the Modal */
+.modal-label {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #3399ff;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: block;
+}
+/* --- MODAL OVERLAY --- */
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85); /* Deep dark backdrop */
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  padding: 20px;
+}
+
+/* --- MODAL CONTAINER --- */
+.custom-modal-container {
+  background: var(--bg-sidebar); /* Matches your sidebar color */
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+  color: var(--text-main);
+}
+
+/* --- LABELS & TYPOGRAPHY --- */
+.modal-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--accent-color); /* Cyber Blue */
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* --- EVIDENCE IMAGES --- */
+.evidence-wrapper {
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+.evidence-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.evidence-img {
+  border: 2px solid var(--border-color);
+  transition: border-color 0.3s ease;
+}
+
+.evidence-img:hover {
+  border-color: var(--accent-color);
+}
+
+/* --- REMARKS TEXTAREA --- */
+.remarks-textarea {
+  width: 100%;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 15px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.remarks-textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+/* --- WORK AREA BOX --- */
+.work-area-box {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px dashed var(--border-color);
+}
+
+/* --- BUTTON ENHANCEMENTS --- */
+.custom-modal-container .btn {
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.custom-modal-container .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Scrollbar for Modal Content */
+.custom-modal-container::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-modal-container::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+}
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(20%); /* Makes the 'X' white */
+}

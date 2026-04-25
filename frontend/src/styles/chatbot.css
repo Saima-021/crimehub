@@ -1,0 +1,145 @@
+/* ================= FLOATING AI BUTTON ================= */
+
+.chat-toggle {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(4, 47, 203, 0.6);
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(4, 47, 203, 0.9);
+}
+
+.chat-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= CHAT CONTAINER ================= */
+
+.chat-container {
+  position: fixed;
+  bottom: 110px;
+  right: 30px;
+  width: 360px;
+  height: 480px;
+  background: #111;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(4, 47, 203, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* ================= HEADER ================= */
+
+.chat-header {
+  background: linear-gradient(135deg, #0d6efd, #042fcb);
+  color: white;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.header-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+/* ================= BODY ================= */
+
+.chat-body {
+  flex: 1;
+  padding: 14px;
+  overflow-y: auto;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= MESSAGE BUBBLES ================= */
+
+.chat-message {
+  margin: 18px 20px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  max-width: 80%;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.chat-message.user {
+  background: linear-gradient(135deg, #0d6efd, #042fcb);
+  color: white;
+  align-self: flex-end;
+}
+
+.chat-message.bot {
+  background: #2a2a2a;
+  color: #f1f1f1;
+}
+
+/* ================= FOOTER ================= */
+
+.chat-footer {
+  display: flex;
+  border-top: 1px solid #333;
+  background: #111;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  background: #1a1a1a;
+  color: white;
+}
+
+.chat-footer input::placeholder {
+  color: #aaa;
+}
+
+.chat-footer button {
+  background: linear-gradient(135deg, #0d6efd, #042fcb);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chat-footer button:hover {
+  opacity: 0.85;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

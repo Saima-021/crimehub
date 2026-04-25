@@ -1,0 +1,83 @@
+.awareness-page {
+  background: #0f0f0f;
+  color: white;
+  min-height: 100vh;
+}
+
+/* ================= FADE IN ================= */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= MAIN CARDS ================= */
+/* ================= MAIN CARDS ================= */
+.awareness-card {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
+  height: 100%;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  /* IMPORTANT */
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.awareness-card:hover {
+  transform: scale(1.05);   /* slightly bigger */
+  border: 1px solid #0d6efd;
+  box-shadow: 0 0 20px rgba(13, 110, 253, 0.5);
+}
+.awareness-card h4 {
+  color: #0d6efd;
+}
+
+
+/* ================= TIPS CARDS ================= */
+.tip-card {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 10px;
+
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(13, 110, 253, 0.4);
+}
+/* ================= EMERGENCY CARD ================= */
+.emergency-card {
+  background: #1a1a1a;
+  padding: 50px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+.emergency-card span {
+  color: #0d6efd;
+  font-weight: bold;
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+  }
+  to {
+    box-shadow: 0 0 25px rgba(13, 110, 253, 0.7);
+  }
+}
